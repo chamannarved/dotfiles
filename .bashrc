@@ -18,4 +18,4 @@ export PATH
 
 alias vim=nvim
 . "$HOME/.cargo/env"
-alias config='/usr/bin/git --git-dir=/home/chamannarved/dotfiles/ --work-tree=/home/chamannarved'
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
