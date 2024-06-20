@@ -1,19 +1,16 @@
 live_config_reload = true
 [window]
 padding = { x=3, y=3 }
-startup_mode = "Fullscreen"
+startup_mode = "Maximized"
 opacity = 0.9
 blur = true
 
 [mouse]
 hide_when_typing = true
 
-[shell]
-program = "/bin/fish"
-
 [scrolling]
 history = 1000
 
 [font]
 size = 11
-normal.family = "JetBrains Mono"
+normal.family = "JetBrainsMono Nerd Font"
