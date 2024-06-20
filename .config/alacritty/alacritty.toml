@@ -14,7 +14,10 @@ program = "/bin/fish"
 history = 1000
 
 [font]
-normal = { family = "FiraCode Nerd Font", style = "Normal" }
-bold = { family = "FiraCode Nerd Font", style = "Bold" }
-italic = { family = "FiraCode Nerd Font", style = "Italic" }
+size = 11
+
+[font]
+normal = { family = "JetBrains Mono", style = "Normal" }
+bold = { family = "JetBrains Mono", style = "Bold" }
+italic = { family = "JetBrains Mono", style = "Italic" }
 
