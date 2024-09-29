@@ -26,4 +26,7 @@ keymap.set('v', '<A-k>', ":m '<-2<cr>gv=gv", { desc = 'Move Up' })
 -- Live Server
 keymap.set('n', '<C-l>', '<cmd>LiveServer<cr>', { desc = 'Start/Stop [L]ive Server' })
 
+-- Dashboard
+keymap.set('n', '<A-d>', '<cmd>Dashboard<cr>', { desc = 'Open [D]ashboad' })
+
 return {}
