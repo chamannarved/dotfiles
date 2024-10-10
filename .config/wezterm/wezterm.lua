@@ -53,7 +53,6 @@ config = {
 
 	automatically_reload_config = true,
 	default_prog = { "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe" },
-
 	enable_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE",
@@ -69,7 +68,7 @@ config = {
 	background = {
 		{
 			source = {
-				File = "$HOME/.config/wezterm/wallpapers/Lake.jpg",
+				File = "C:/Users/chama/.config/wezterm/wallpapers/Lake.jpg",
 			},
 			hsb = {
 				hue = 1.0,
