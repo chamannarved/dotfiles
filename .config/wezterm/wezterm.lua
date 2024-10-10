@@ -51,7 +51,6 @@ config = {
 		},
 	},
 
-	
 	automatically_reload_config = true,
 
 	-- default_prog = { "/usr/local/bin/fish", "-l" },
@@ -62,8 +61,10 @@ config = {
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE",
 	color_scheme = "tokyonight_night",
+
 	font = wezterm.font("JetBrains Mono", { weight = "Medium" }),
 	font_size = 11.5,
+	
 	window_padding = {
 		top = 2,
 		bottom = 2,
