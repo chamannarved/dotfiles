@@ -51,19 +51,20 @@ config = {
 		},
 	},
 
-	
 	automatically_reload_config = true,
-	
-	-- Set PowerShell as default shell
 	-- default_prog = { "/usr/local/bin/fish", "-l" },
 	
+	-- Set PowerShell as default shell
 	default_prog = { "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe" },
+
 	enable_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE",
 	color_scheme = "tokyonight_night",
+
 	font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium" }),
 	font_size = 11.5,
+	
 	window_padding = {
 		top = 2,
 		bottom = 2,
