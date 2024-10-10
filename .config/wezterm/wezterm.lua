@@ -51,6 +51,7 @@ config = {
 		},
 	},
 
+	
 	automatically_reload_config = true,
 
 	-- default_prog = { "/usr/local/bin/fish", "-l" },
