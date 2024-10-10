@@ -53,14 +53,14 @@ config = {
 
 	automatically_reload_config = true,
 
+	-- default_prog = { "/usr/local/bin/fish", "-l" },
 	-- Set PowerShell as default shell
-	default_prog = { "/usr/local/bin/fish", "-l" },
-
+	default_prog = { "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe" },
 	enable_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
 	window_decorations = "RESIZE",
 	color_scheme = "tokyonight_night",
-	font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium" }),
+	font = wezterm.font("JetBrains Mono", { weight = "Medium" }),
 	font_size = 11.5,
 	window_padding = {
 		top = 2,
@@ -71,7 +71,8 @@ config = {
 	background = {
 		{
 			source = {
-				File = "$HOME/.config/wezterm/wallpapers/Lake.jpg",
+				-- File = "$HOME/.config/wezterm/wallpapers/Lake.jpg",
+				File = "C:/Users/chama/.config/wezterm/wallpapers/Lake.jpg",
 			},
 			hsb = {
 				hue = 1.0,
