@@ -52,9 +52,7 @@ config = {
 	},
 
 	automatically_reload_config = true,
-
-	-- Set PowerShell as default shell
-	default_prog = { "/usr/local/bin/fish", "-l" },
+	default_prog = { "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe" },
 
 	enable_tab_bar = false,
 	window_close_confirmation = "NeverPrompt",
@@ -91,5 +89,6 @@ config = {
 		},
 	},
 }
+
 -- and finally, return the configuration to wezterm
 return config
