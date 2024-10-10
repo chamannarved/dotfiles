@@ -5,20 +5,91 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
--- Set PowerShell as default shell
-config.default_prog = { "/usr/local/bin/fish", "-l" }
+config = {
+	leader = {
+		key = "a",
+		mods = "CTRL",
+		timeout_milliseconds = 2000,
+	},
 
-config.window_padding = {
-	left = 3,
-	right = 3,
-	top = 3,
-	bottom = 0,
+	keys = {
+		-- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
+		{
+			key = "a",
+			mods = "LEADER|CTRL",
+			action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }),
+		},
+		{
+			key = "|",
+			mods = "LEADER|SHIFT",
+			action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+		},
+		{
+			key = "-",
+			mods = "LEADER",
+			action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+		},
+		{
+			key = "H",
+			mods = "LEADER",
+			action = wezterm.action.AdjustPaneSize({ "Left", 5 }),
+		},
+		{
+			key = "J",
+			mods = "LEADER",
+			action = wezterm.action.AdjustPaneSize({ "Down", 5 }),
+		},
+		{
+			key = "K",
+			mods = "LEADER",
+			action = wezterm.action.AdjustPaneSize({ "Up", 5 }),
+		},
+		{
+			key = "L",
+			mods = "LEADER",
+			action = wezterm.action.AdjustPaneSize({ "Right", 5 }),
+		},
+	},
+
+	automatically_reload_config = true,
+
+	-- Set PowerShell as default shell
+	default_prog = { "/usr/local/bin/fish", "-l" },
+
+	enable_tab_bar = false,
+	window_close_confirmation = "NeverPrompt",
+	window_decorations = "RESIZE",
+	color_scheme = "tokyonight_night",
+	font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Medium" }),
+	font_size = 11.5,
+	window_padding = {
+		top = 2,
+		bottom = 2,
+		left = 2,
+		right = 2,
+	},
+	background = {
+		{
+			source = {
+				File = "$HOME/.config/wezterm/wallpapers/Lake.jpg",
+			},
+			hsb = {
+				hue = 1.0,
+				saturation = 1.02,
+				brightness = 0.25,
+			},
+			width = "100%",
+			height = "100%",
+		},
+		{
+			source = {
+				Color = "#282c35",
+			},
+			width = "100%",
+			height = "100%",
+			opacity = 0.55,
+		},
+	},
 }
-config.window_decorations = "RESIZE"
-
--- For example, changing the color scheme:
-config.color_scheme = "tokyonight_night"
-config.font = wezterm.font("JetBrains Mono")
-
 -- and finally, return the configuration to wezterm
 return config
