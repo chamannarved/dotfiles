@@ -14,28 +14,62 @@
 
 [
   {
-    "context": "Workspace",
-
+    "context": "Workspace || Editor",
     "bindings": {
       
       // Toggle dock's 
-      "space w": "workspace::ToggleLeftDock",
-      "space j": "workspace::ToggleBottomDock",
-      "space l": "workspace::ToggleRightDock",
-      
-      // Toggle project pannel
-      "space e": "project_panel::ToggleFocus",
-      // Open markdown preview
-      "space m p": "markdown::OpenPreview",
-      "space m P": "markdown::OpenPreviewToTheSide",
-      // File finder
-      "space space": "file_finder::Toggle",
-      // Diagnostic
-      "space x x": "diagnostics::Deploy",
+      "ctrl-b": "workspace::ToggleLeftDock",
+      "ctrl-`": "workspace::ToggleBottomDock",
+      // "ctrl- ": "workspace::ToggleRightDock",
       
     }
   },
-
+  { 
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in normal & visual mode
+      
+      // Toggle project pannel
+      "space e": "project_panel::ToggleFocus", 
+      
+      // Git
+      "space g h d": "editor::ToggleHunkDiff",
+      "space g h r": "editor::RevertSelectedHunks",
+      
+      // Toggle soft wrap
+      "space u w": "editor::ToggleSoftWrap",
+      
+      // NOTE: Toggle Zen mode, not fully working yet
+      "space c z": "workspace::ToggleCenteredLayout",
+      
+      // Open markdown preview
+      "space m p": "markdown::OpenPreview",
+      "space m P": "markdown::OpenPreviewToTheSide",
+      
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work only in normal mode
+      
+      // Diagnostic
+      "space x x": "diagnostics::Deploy",
+      
+      // File finder
+      "space space": "file_finder::Toggle",
+      
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Open file finder
+      "space space": "file_finder::Toggle",
+      // Open recent project
+      "space f p": "projects::OpenRecent",
+    },
+  },
   {
     "context": "Editor",
 

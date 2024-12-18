@@ -7,9 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "auto_update_extensions": {
+    "live-server": false
+  },
   "autosave": {
     "after_delay": {
-      "milliseconds": 3000
+      "milliseconds": 10000
     }
   },
   // Turn off telemetry
