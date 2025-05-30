@@ -73,8 +73,8 @@ config = {
     background = {
         {
             source = {
-                File = "$HOME/.config/wezterm/wallpapers/Lake.jpg",
-                -- File = "C:/Users/chama/.config/wezterm/wallpapers/Lake.jpg",
+                -- File = "$HOME/.config/wezterm/wallpapers/Lake.jpg",
+                File = "C:/Users/chama/.config/wezterm/wallpapers/Lake.jpg",
             },
             hsb = {
                 hue = 1.0,
