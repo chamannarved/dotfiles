@@ -1,5 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
+local act = wezterm.action
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
@@ -11,44 +12,56 @@ config = {
         mods = "CTRL",
         timeout_milliseconds = 2000,
     },
+    use_fancy_tab_bar = false,
+    tab_bar_at_top = true,
 
     keys = {
         -- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
         {
             key = "a",
             mods = "LEADER|CTRL",
-            action = wezterm.action.SendKey({ key = "a", mods = "CTRL" }),
+            action = act.SendKey({ key = "a", mods = "CTRL" }),
         },
         {
             key = "|",
             mods = "LEADER|SHIFT",
-            action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+            action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
         },
         {
             key = "-",
             mods = "LEADER",
-            action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+            action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
         },
         {
             key = "H",
             mods = "LEADER",
-            action = wezterm.action.AdjustPaneSize({ "Left", 5 }),
+            action = act.AdjustPaneSize({ "Left", 5 }),
         },
         {
             key = "J",
             mods = "LEADER",
-            action = wezterm.action.AdjustPaneSize({ "Down", 5 }),
+            action = act.AdjustPaneSize({ "Down", 5 }),
         },
         {
             key = "K",
             mods = "LEADER",
-            action = wezterm.action.AdjustPaneSize({ "Up", 5 }),
+            action = act.AdjustPaneSize({ "Up", 5 }),
         },
         {
             key = "L",
             mods = "LEADER",
-            action = wezterm.action.AdjustPaneSize({ "Right", 5 }),
+            action = act.AdjustPaneSize({ "Right", 5 }),
         },
+        -- Window management
+        {
+            key = "z",
+            mods = "LEADER",
+            action = "TogglePaneZoomState",
+        },
+        { key = "h", mods = "LEADER", action = act.ActivatePaneDirection("Left") },
+        { key = "j", mods = "LEADER", action = act.ActivatePaneDirection("Down") },
+        { key = "k", mods = "LEADER", action = act.ActivatePaneDirection("Up") },
+        { key = "l", mods = "LEADER", action = act.ActivatePaneDirection("Right") },
     },
 
     automatically_reload_config = true,
