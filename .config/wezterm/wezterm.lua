@@ -12,8 +12,6 @@ config = {
         mods = "CTRL",
         timeout_milliseconds = 2000,
     },
-    use_fancy_tab_bar = false,
-    tab_bar_at_top = true,
 
     keys = {
         -- Send "CTRL-A" to the terminal when pressing CTRL-A, CTRL-A
