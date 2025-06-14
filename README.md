@@ -1,7 +1,7 @@
 # 🛠️ dotfiles
-🏠 Personal dotfiles for Linux and Windows systems.
+🏠 Personal dotfiles for Linux and Windows OS.
 
-_⚠️ Note: If needed switch to a specific branch for a particular OS config._
+<!-- _⚠️ Note: If needed switch to a specific branch for a particular OS config._ -->
 
 ## Get started
 
@@ -19,19 +19,20 @@ git init --bare
 #### Add alias to `.bashrc`,`.zsh` or any other terminal app you use.
 ```bash
 # Linux/Unix
-echo "alias dotfiles='git --git-dir=$HOME/dotfiles --work-tree=$HOME'" >> $HOME/.bashrc
+echo "alias config='git --git-dir=$HOME/dotfiles --work-tree=$HOME'" >> $HOME/.bashrc
 ```
 
 - Add that your source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems:
 
 ```bash
-# Create this .gitignore in `$Home` 
+# Create this .gitignore in `$HOME` 
 echo "dotfiles" >> .gitignore
 ```
 
 ### **Windows**
 To make custom PowerShell aliases persistent, you should add them to your PowerShell profile. Here's how to do it:
 
+⚡ Note: Open PowerShell as adminstrator.
 1. First, check if you already have a PowerShell profile:
 
 ```powershell
@@ -43,14 +44,14 @@ Test-Path $PROFILE
 New-Item -Path $PROFILE -Type File -Force
 ```
 
-3. Open your PowerShell profile in a text editor:
+3. Open your PowerShell profile in a text editor (like vim):
 ```powershelll
 notepad $PROFILE
 ```
 
 4. Add your custom aliases to the profile file. For example:
 ```powershell
-function dotfiles {
+function config {
     git --git-dir="$HOME\dotfiles" --work-tree="$HOME" $args
 }
 ```
@@ -62,17 +63,17 @@ function dotfiles {
 . $PROFILE
 ```
 
-**Now you can use `dotfiles` in PowerShell just like you would use `dotfiles` in Linux/Unix. For example:**
+**Now you can use `config` in PowerShell just like you would use `config` in Linux/Unix. For example:**
 ```powershell
-dotfiles status
-dotfiles add .bashrc
-dotfiles commit -m "Update .bashrc"
+config status
+config add .bashrc
+config commit -m "Update .bashrc"
 ```
 
 
 - Run command to config Untrack file in git
 ```bash
-dotfiles config --local status.showUntrackedFiles no
+config config --local status.showUntrackedFiles no
 ```
 
 
@@ -82,18 +83,25 @@ dotfiles config --local status.showUntrackedFiles no
 
 If you already store your configuration/dotfiles in a Git repository, on a new system you can migrate to this setup with the following steps:
 
-- Before the installation make sure you have committed the alias to your `.bashrc` or `.zsh`:
+- Before the installation make sure you have committed the alias to your `.bashrc`, `.zsh` and `powershell`:
 
 ```bash
+# Linux/Unix
 alias dotfiles='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+
 ```
 
-see for [windows](#windows).
+```powershell
+# Windows PowerShell
+function config {
+    git --git-dir="$HOME\dotfiles" --work-tree="$HOME" $args
+}
+```
 
 - Add that your source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems:
 
 ```bash
-# Create this .gitignore in `$Home` 
+# Create this .gitignore in `$HOME` 
 echo "dotfiles" >> .gitignore
 ```
 
@@ -106,13 +114,13 @@ git clone --bare https://github.com/chamannarved/dotfiles.git  $HOME/dotfil
 - Define the alias in the current shell scope:
 
 ```bash
-alias dotfiles='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias config='git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 ```
 
 - Checkout the actual content from the bare repository to your `$HOME`:
 
 ```bash
-dotfiles checkout
+config checkout
 ```
 
 - The step above might fail with a message like:
@@ -136,24 +144,24 @@ xargs -I{} mv {} .config-backup/{}
 - Re-run the checkout if you had problems:
 
 ```bash
-dotfiles checkout
+config checkout
 ```
 
 - Set the flag `showUntrackedFiles` to `no` on this specific (local) repository:
 
 ```bash
-dotfiles config --local status.showUntrackedFiles no
+config config --local status.showUntrackedFiles no
 ```
 
 - You're done, from now on you can now type `config` commands to add and update your dotfiles:
 
 ```bash
-dotfiles status
-dotfiles add .vimrc
-dotfiles commit -m "Add vimrc"
-dotfiles add .bashrc
-dotfiles commit -m "Add bashrc"
-dotfiles push
+config status
+config add .vimrc
+config commit -m "Add vimrc"
+config add .bashrc
+config commit -m "Add bashrc"
+config push
 ```
 
 
@@ -164,7 +172,7 @@ Again as a shortcut not to have to remember all these steps on any new machine y
 curl -Lks <Github-snippet-link> | /bin/bash
 ```
 
-For completeness this is what I ended up with:
+**Script code**
 
 ```bash
 git clone --bare https://github.com/chamannarved/dotfiles.git $HOME/dotfiles
@@ -173,13 +181,13 @@ git clone --bare https://github.com/chamannarved/dotfiles.git $HOME/dotfiles
 echo "alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'" >> $HOME/.bashrc
 
 mkdir -p .config-backup
-dotfiles checkout
+config checkout
 if [ $? = 0 ]; then
   echo "Checked out dotfiles.";
   else
     echo "Backing up pre-existing dotfiles.";
-    dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+    config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
 fi;
-dotfiles checkout
-dotfiles config status.showUntrackedFiles no
+config checkout
+config config status.showUntrackedFiles no
 ```
