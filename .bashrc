@@ -16,6 +16,6 @@ export PATH
 
 # User specific aliases and functions
 
-alias vim=nvim
+alias nv=nvim
 . "$HOME/.cargo/env"
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
