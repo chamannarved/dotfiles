@@ -1,12 +1,3 @@
-local nvim_version = vim.version()
-local mason_lspconfig_version
-
-if nvim_version.major == 0 and nvim_version.minor < 11 then
-    mason_lspconfig_version = 'v1.x'
-else
-    mason_lspconfig_version = 'v2.x'
-end
-
 return {
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -23,11 +14,7 @@ return {
             },
         },
         'williamboman/mason.nvim',
-        {
-            'williamboman/mason-lspconfig.nvim',
-            version = mason_lspconfig_version,
-        },
-
+        'williamboman/mason-lspconfig.nvim',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
         -- Useful status updates for LSP.
         {
