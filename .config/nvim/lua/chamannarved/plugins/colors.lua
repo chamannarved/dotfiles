@@ -2,20 +2,19 @@
 --     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- end
 return {
+    -- {
+    --     "folke/tokyonight.nvim",
+    --     config = function()
+    --         vim.cmd.colorscheme("tokyonight")
+    --         -- enable_transparency()
+    --     end,
+    -- },
     {
-        "folke/tokyonight.nvim",
+        'ellisonleao/gruvbox.nvim',
+        priority = 1000,
         config = function()
-            vim.cmd.colorscheme("tokyonight")
-            -- enable_transparency()
+            vim.cmd.colorscheme 'gruvbox'
         end,
-    },
-    {
-        "nvim-lualine/lualine.nvim",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        opts = {
-            theme = "tokyonight",
-        },
+        opts = ...,
     },
 }
