@@ -1,30 +1,37 @@
 return {
-    { "folke/which-key.nvim" },
-    { "folke/todo-comments.nvim", opts = {} },
+  { 'folke/which-key.nvim' },
+  { 'folke/todo-comments.nvim', opts = {} },
 
-    { -- This helps with php/html for indentation
-        "captbaritone/better-indent-support-for-php-with-html",
-    },
+  { -- This helps with php/html for indentation
+    'captbaritone/better-indent-support-for-php-with-html',
+  },
 
-    { -- This helps with ssh tunneling and copying to clipboard
-        "ojroques/vim-oscyank",
-    },
+  { -- This helps with ssh tunneling and copying to clipboard
+    'ojroques/vim-oscyank',
+  },
 
-    { -- Git plugin
-        "tpope/vim-fugitive",
-    },
+  { -- Git plugin
+    'tpope/vim-fugitive',
+  },
 
-    { -- Show historical versions of the file locally
-        "mbbill/undotree",
-    },
+  { -- Show historical versions of the file locally
+    'mbbill/undotree',
+  },
 
-    { -- Show CSS Colors
-        "brenoprata10/nvim-highlight-colors",
-        config = function()
-            require("nvim-highlight-colors").setup({})
-        end,
-    },
-    {
-        "mbbill/undotree",
-    },
+  { -- Show CSS Colors
+    'brenoprata10/nvim-highlight-colors',
+    config = function()
+      require('nvim-highlight-colors').setup {}
+    end,
+  },
+  {
+    'mbbill/undotree',
+  },
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = true,
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+  },
 }
