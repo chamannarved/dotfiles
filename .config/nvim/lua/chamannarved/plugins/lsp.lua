@@ -39,11 +39,11 @@ return {
     'L3MON4D3/LuaSnip',
     'rafamadriz/friendly-snippets',
     -- Allows extra capabilities provided by blink.cmp
-    {
-      'saghen/blink.cmp',
-      dependencies = 'rafamadriz/friendly-snippets',
-      signatures = { enabled = true },
-    },
+    -- {
+    --   'saghen/blink.cmp',
+    --   dependencies = 'rafamadriz/friendly-snippets',
+    --   signatures = { enabled = true },
+    -- },
     { -- Autoformat
       'stevearc/conform.nvim',
       event = { 'BufWritePre' },
