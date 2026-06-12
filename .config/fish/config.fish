@@ -8,3 +8,5 @@ if status is-interactive
     tmux a || tmux new -s base
     clear
 end
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"
