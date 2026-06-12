@@ -1,4 +1,4 @@
-live_config_reload = true
+general.live_config_reload = true
 
 [window]
 padding = { x=3, y=3 }
@@ -15,8 +15,4 @@ history = 1000
 [font]
 size = 11
 normal.family = "JetBrainsMono Nerd Font"
-
-[shell]
-program = "fish"
-args = ["-l", "-c", "tmux attach || tmux new -s NewSession"]
 
